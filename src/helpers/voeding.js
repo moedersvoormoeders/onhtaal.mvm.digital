@@ -1,11 +1,11 @@
 export const needsMelkpoeder = (result) => {
     
-    if (!result.Geboortedata || !result.Geschiedenis) {
+    if (!result.geboortedata || !result.paketten) {
       console.log(result)
         return false
     }
 
-    const lines = result.Geboortedata.split("\n")
+    const lines = result.geboortedata.split("\n")
     for (let line of lines) {
         const parts = line.split(" ")
         const date = Date.parse(parts[0])
@@ -16,11 +16,11 @@ export const needsMelkpoeder = (result) => {
             let hadMelkpoeder = false
 
             // check if melkpoeder has been given before
-            for (let pakket of result.Geschiedenis) {
+            for (let pakket of result.paketten) {
               if (!pakket.Gekregen) {
                 continue
               }
-              for (let gekregen of pakket.Gekregen) {
+              for (let gekregen of pakket.gekregen) {
                 if (gekregen.includes("Melkpoeder")) {
                   hadMelkpoeder = true
                 }
@@ -34,13 +34,13 @@ export const needsMelkpoeder = (result) => {
 }
 
 export const needsVerjaardag= (result) => {
-  if (!result.Geboortedata) {
+  if (!result.geboortedata) {
       return false
   }
 
   const today = new Date()
 
-  const lines = result.Geboortedata.split("\n")
+  const lines = result.geboortedata.split("\n")
   for (let line of lines) {
       const parts = line.split(" ")
       let date = Date.parse(parts[0])

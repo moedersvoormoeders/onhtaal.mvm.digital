@@ -2,6 +2,12 @@ module.exports = {
     publicPath: "./",
     "runtimeCompiler": true,
     configureWebpack: {
+        externals: {
+          // global app config object
+          config: JSON.stringify({
+              apiUrl: 'https://api.mvm.digital'
+          })
+        },
         optimization: {
             runtimeChunk: 'single',
             splitChunks: {
