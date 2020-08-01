@@ -108,6 +108,7 @@
 <script>
 import { klantenService } from "../_services/klanten.service"
 import { voedingService } from "../_services/voeding.service"
+import { authService } from "../_services/auth.service"
 import * as voedingHelper from "../helpers/voeding"
 
 export default {
@@ -257,7 +258,9 @@ export default {
     }
   },
 
-  created: function() {}
+  created: function() {
+    authService.check().catch(() => this.$router.push("/login"))
+  }
 };
 
 async function sendPrint(data = {}) {
