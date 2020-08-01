@@ -1,4 +1,5 @@
 <template id="login">
+  <div style="background: royalblue">
   <div class="container vertical-center">
     <div class="container">
       <div class="row justify-content-center">
@@ -28,6 +29,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -74,6 +76,7 @@ export default {
   created: function () {},
 };
 </script>
+
 
 <style scoped>
 .container {
